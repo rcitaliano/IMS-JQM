@@ -34,18 +34,91 @@
         <script type="text/javascript" src="jquery-1.12.2.min.js"></script>
         <script type="text/javascript" src="jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript">
-            $(document).ready(function () {
+            $(document).on('pageinit', function (event) {
                 app.initialize();
             });
         </script>
     </head>
     <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+        <div data-role="page" id="pageHome" data-next="pageTeam" data-prev="pageContacts">
+            <div data-role="header" data-position="fixed" >
+                <h1>IMS - home</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a class="ui-btn-active" data-transition="slide" data-icon="home" href="#pageHome">Home</a></li>
+                        <li><a class="" data-transition="slide" data-icon="star" href="#pageTeam">Team</a></li>
+                        <li><a class="" data-transition="slide" data-icon="mail" href="#pageContacts">contatti</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
+
+            <div data-role="main" class="ui-content">
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <h1>My Footer</h1>
+            </div>
+        </div> 
+        <div data-role="page" id="pageTeam" data-next="pageContacts" data-prev="pageHome">
+            <div data-role="header" data-position="fixed">
+                <h1>IMS - team</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a class=""  data-transition="slide" data-icon="home" href="#pageHome">Home</a></li>
+                        <li><a class="ui-btn-active" data-transition="slide" data-icon="star" href="#pageTeam">Team</a></li>
+                        <li><a class="" data-transition="slide" data-icon="mail" href="#pageContacts">contatti</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <h1>My Footer</h1>
+            </div>
+        </div> 
+        <div data-role="page" id="pageContacts" data-next="pageHome" data-prev="pageTeam">
+            <div data-role="header" data-position="fixed">
+                <h1>IMS - contatti</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a class="" data-transition="slide" data-icon="home" href="#pageHome">Home</a></li>
+                        <li><a class="" data-transition="slide" data-icon="star" href="#pageTeam">Team</a></li>
+                        <li><a class="ui-btn-active" data-transition="slide" data-icon="mail" href="#pageContacts">contatti</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <ul class="contact-list" data-role="listview">
+                    <li>
+                        <a href="http://www.facebook.com/IMS-lavorare-per-Dio--181077808611069">
+                            <img src="images/facebook.png" />
+                            <h2>Pagina Facebook</h2>
+                            <p>Seguici su facebook</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:shoekconcerti@gmail.com">
+                            <img src="images/gmail.jpg" />
+                            <h2>E-mail</h2>
+                            <p>Mandaci un e-mail</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UCt0aYLk6t69Amu_9tL-RNSQ">
+                            <img src="images/youtube.png" />
+                            <h2>Canale Youtube di SHOEK</h2>
+                            <p>Segui SHOEK su Youtube</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <h1>My Footer</h1>
+            </div>
+        </div> 
     </body>
 </html>
