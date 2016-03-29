@@ -32,18 +32,33 @@ var app = {
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
+    onDeviceReady: function () {
+        var swipeVec = ["#pageHome", "#pageTeam", "#pageContacts"];
+        //reason to use event.stopImmediatePropagation();
+        //http://stackoverflow.com/questions/9763983/stop-jquery-mobile-swipe-event-double-bubbling
+        $("#pageHome").on("swiperight", function (event, data) {
+            event.stopImmediatePropagation();
+            $.mobile.changePage("#pageContacts");
+        });
+        $("#pageHome").on("swipeleft", function (event, data) {
+            event.stopImmediatePropagation();
+            $.mobile.changePage("#pageTeam");
+        });
+        $("#pageTeam").on("swiperight", function (event, data) {
+            event.stopImmediatePropagation();
+            $.mobile.changePage("#pageHome");
+        });
+        $("#pageTeam").on("swipeleft", function (event, data) {
+            event.stopImmediatePropagation();
+            $.mobile.changePage("#pageContacts");
+        });
+        $("#pageContacts").on("swiperight", function (event, data) {
+            event.stopImmediatePropagation();
+            $.mobile.changePage("#pageTeam");
+        });
+        $("#pageContacts").on("swipeleft", function (event, data) {
+            event.stopImmediatePropagation();
+            $.mobile.changePage("#pageHome");
+        });
     }
 };
